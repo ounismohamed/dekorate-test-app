@@ -23,7 +23,7 @@ public class PersonsController {
     }
 
     @GetMapping("/{id}")
-    public Person findById(@PathVariable("id") Long id) {
+    public Person findById(@PathVariable("id") Integer id) {
         LOGGER.info("Person find: id={}", id);
         return repository.findById(id);
     }

@@ -17,7 +17,7 @@ public class PersonRepository {
         return person;
     }
 
-    public Person findById(Long id) {
+    public Person findById(Integer id) {
         Optional<Person> person = persons.stream().filter(a -> a.getId().equals(id)).findFirst();
         if (person.isPresent())
             return person.get();
