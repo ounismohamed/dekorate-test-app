@@ -1,5 +1,8 @@
 package pl.piomin.services.sample;
 
+import io.dekorate.kubernetes.annotation.Env;
+import io.dekorate.openshift.annotation.OpenshiftApplication;
+import io.dekorate.option.annotation.JvmOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +19,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.Optional;
 
 @SpringBootApplication
+@OpenshiftApplication(replicas = 2, expose = true, envVars = {
+        @Env(name="sample-app-config", configmap = "sample-app-config")
+})
+@JvmOptions(xms = 128, xmx = 256, heapDumpOnOutOfMemoryError = true)
 @EnableSwagger2
 public class SampleApp {
 
