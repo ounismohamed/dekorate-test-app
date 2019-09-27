@@ -1,3 +1,5 @@
+spring.application.name: sample-app
+
 logging.logstash:
   url: 192.168.99.100:8500
   trustStoreLocation: /tmp/location
