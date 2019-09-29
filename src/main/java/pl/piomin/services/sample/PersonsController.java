@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/persons")
@@ -19,11 +20,11 @@ public class PersonsController {
     PersonRepository repository;
 
     @Value(value = "${showAddress:false}")
-    Optional<Boolean> showAddress;
+    boolean showAddress;
     @Value(value = "${showContactInfo:false}")
-    Optional<Boolean> showContactInfo;
+    boolean showContactInfo;
     @Value(value = "${showSocial:false}")
-    Optional<Boolean> showSocial;
+    boolean showSocial;
 
     @PostMapping
     public Person add(@RequestBody Person person) {
@@ -34,13 +35,22 @@ public class PersonsController {
     @GetMapping("/{id}")
     public Person findById(@PathVariable("id") Integer id) {
         LOGGER.info("Person find: id={}", id);
-        return repository.findById(id);
+        return hidePersonParams(repository.findById(id));
     }
 
     @GetMapping
     public List<Person> findAll() {
         LOGGER.info("Person find");
-        return repository.findAll();
+        return repository.findAll().stream().map(this::hidePersonParams).collect(Collectors.toList());
     }
 
+    private Person hidePersonParams(Person person) {
+        if (!showAddress)
+            person.setAddress(null);
+        if (!showContactInfo)
+            person.setContact(null);
+        if (!showSocial)
+            person.setSocial(null);
+        return person;
+    }
 }
