@@ -32,7 +32,7 @@ steps:
     commands:
       - export MAVEN_OPTS="-Duser.home=./"
       - chmod +x mvnw
-      - ./mvnw -ntp verify -Pprod -DskipTests
+      - ./mvnw -ntp install -Pprod -DskipTests
     when:
       event:
         - push
