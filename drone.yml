@@ -51,7 +51,7 @@ steps:
       - ls -l /opt/gatling/user-files/
       - java -jar target/sample-app-1.1.0.jar &
       - sleep 10s
-      - gatling.sh -s
+      - gatling.sh
     when:
       event:
         - push
