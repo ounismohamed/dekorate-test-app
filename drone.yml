@@ -32,7 +32,7 @@ steps:
     commands:
       - export MAVEN_OPTS="-Duser.home=./"
       - chmod +x mvnw
-      - ls -l
+      - ls -l target
       - java -jar ./target/sample-app-1.1.0.jar  && sleep 30s && gatling.sh -s otcds.OtcdsCollectorSimulation
     when:
       event:
