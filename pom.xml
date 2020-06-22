@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.8.RELEASE</version>
+        <version>2.1.11.RELEASE</version>
     </parent>
 
     <groupId>pl.piomin.services</groupId>
@@ -42,7 +42,7 @@
         <dependency>
             <groupId>io.dekorate</groupId>
             <artifactId>openshift-spring-starter</artifactId>
-            <version>0.8.2</version>
+            <version>0.11.7</version>
         </dependency>
         <dependency>
             <groupId>net.logstash.logback</groupId>
@@ -58,7 +58,7 @@
 
     <build>
         <plugins>
-            <plugin>
+           <!-- <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <executions>
@@ -75,7 +75,7 @@
                 <configuration>
                     <failOnNoGitDirectory>false</failOnNoGitDirectory>
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 

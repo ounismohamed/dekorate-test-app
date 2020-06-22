@@ -26,9 +26,9 @@ import java.util.Optional;
 
 @SpringBootApplication
 @OpenshiftApplication(replicas = 2, expose = true, envVars = {
-        @Env(name="sample-app-config", configmap = "sample-app-config")
+        /*@Env(name="sample-app-config", configmap = "sample-app-config")*/
 })
-@JvmOptions(xms = 128, xmx = 256, heapDumpOnOutOfMemoryError = true)
+@JvmOptions( heapDumpOnOutOfMemoryError = true)
 @EnableSwagger2
 public class SampleApp {
 
