@@ -63,6 +63,7 @@ public class SampleApp {
     }
 
     private ApiInfo apiInfo(String version) {
+        System.out.println("test test");
         return new ApiInfoBuilder()
                 .title("API - Person Service")
                 .description("Persons Management")
