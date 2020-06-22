@@ -9,7 +9,7 @@ import scala.concurrent.duration._
 class SimpleAppTest extends Simulation {
     
     // Via Gateway
-    val httpProtocol = http.baseUrl("http://127.0.0.1/")
+    val httpProtocol = http.baseURL("http://127.0.0.1/")
 
  val apiUrl = "/"
 
