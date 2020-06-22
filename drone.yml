@@ -26,18 +26,26 @@ steps:
         - push
         - tag
 
-  - name: Packaging
-    image: openjdk:8
+  - name: LoadTest
+    image: denvazh/gatling:2.0.0-RC1
     user: root
     commands:
       - export MAVEN_OPTS="-Duser.home=./"
       - chmod +x mvnw
-      - ./mvnw -ntp verify -Pprod -DskipTests
+      - ./mvnw  && sleep 30s && gatling.sh -s otcds.OtcdsCollectorSimulation
     when:
       event:
         - push
         - tag
 
+
+
+
+
+
+
+
+# sleep 2m 30s
   # - name: Docker
   #   user: root
   #   image: openjdk:8
