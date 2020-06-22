@@ -48,7 +48,7 @@ steps:
       - cp -r simple-app/ /opt/gatling/user-files/
       - java -jar target/sample-app-1.1.0.jar &
       - sleep 10s
-      - gatling.sh -s SimpleAppTest
+      - gatling.sh
     when:
       event:
         - push
