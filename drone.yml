@@ -44,14 +44,10 @@ steps:
     commands:
       - export MAVEN_OPTS="-Duser.home=./"
       - chmod +x mvnw
-      - ls -l /
-      - echo ------> pwd
-      - pwd
       - cp -r simpleapp/ /opt/gatling/user-files/simulations/
-      - ls -l /opt/gatling/user-files/
       - java -jar target/sample-app-1.1.0.jar &
       - sleep 10s
-      - gatling.sh
+      - gatling.sh -s simpleapp.SimpleAppTest
     when:
       event:
         - push
