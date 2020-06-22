@@ -1,0 +1,51 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: Clean
+    image: openjdk:8
+    user: root
+    commands:
+      - export MAVEN_OPTS="-Duser.home=./"
+      - chmod +x mvnw
+      - ./mvnw -ntp clean
+    when:
+      event:
+        - push
+        - tag
+
+  - name: Backend tests
+    image: openjdk:8
+    user: root
+    commands:
+      - export MAVEN_OPTS="-Duser.home=./"
+      - chmod +x mvnw
+      - ./mvnw -ntp test
+    when:
+      event:
+        - push
+        - tag
+
+  - name: Packaging
+    image: openjdk:8
+    user: root
+    commands:
+      - export MAVEN_OPTS="-Duser.home=./"
+      - chmod +x mvnw
+      - ./mvnw -ntp verify -Pprod -DskipTests
+    when:
+      event:
+        - push
+        - tag
+
+  # - name: Docker
+  #   user: root
+  #   image: openjdk:8
+  #   commands:
+  #     - export MAVEN_OPTS="-Duser.home=./"
+  #     - chmod +x mvnw
+  #     - ./mvnw -ntp jib:build -Pprod,zipkin -Djib.httpTimeout=120000 -Djib.to.image=registry.mykeyrus.tn/otcds/otcds-content:${DRONE_BRANCH//\//-}-latest -Djib.to.auth.username=admin -Djib.to.auth.password=eqx#123
+  #   when:
+  #     branch:
+  #       - master
+  #       - develop
