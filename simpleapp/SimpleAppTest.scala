@@ -11,7 +11,7 @@ class SimpleAppTest extends Simulation {
     // Via Gateway
     val httpProtocol = http.baseURL("http://127.0.0.1:8080")
 
- val apiUrl = "/person"
+ val apiUrl = "/persons"
 
 //****************************************************** Get popularServices *************************************************************//
 

@@ -19,6 +19,11 @@ PersonRepository personRepository= new PersonRepository();
     personRepository.add(new Person(3, "Paul Walker", 44, Gender.MALE, address, contact, social));
 
     assert(personRepository.findById(3).getId().equals(new Person(3, "Paul Walker", 44, Gender.MALE, address, contact, social).getId()));
-    //assert (false);
+
+    }
+
+    @Test
+    public void failureTest() {
+        assert (false);
     }
 }
