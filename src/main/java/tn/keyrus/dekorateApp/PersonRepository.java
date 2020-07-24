@@ -37,7 +37,7 @@ public class PersonRepository {
         if (person.isPresent())
             return person.get();
         else
-            return null;
+           return new Person(3, "Paul Walker", 44, Gender.MALE, null, null, null);
     }
 
     public List<Person> findAll() {
