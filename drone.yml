@@ -46,7 +46,7 @@ steps:
       - chmod +x mvnw
       - cp -r simpleapp/ /opt/gatling/user-files/simulations/
       - java -jar target/sample-app-1.1.0.jar &
-      - sleep 10s
+      - sleep 6s
       - gatling.sh -s simpleapp.SimpleAppTest
     when:
       event:
