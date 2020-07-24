@@ -1,6 +1,5 @@
-package pl.piomin.services.sample;
+package tn.keyrus.dekorateApp;
 
-import io.dekorate.kubernetes.annotation.Env;
 import io.dekorate.openshift.annotation.OpenshiftApplication;
 import io.dekorate.option.annotation.JvmOptions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.Optional;
 
 @SpringBootApplication
-@OpenshiftApplication(replicas = 2, expose = true, envVars = {
+@OpenshiftApplication(replicas = 1, expose = true, envVars = {
         /*@Env(name="sample-app-config", configmap = "sample-app-config")*/
 })
 @JvmOptions( heapDumpOnOutOfMemoryError = true)
@@ -51,7 +50,7 @@ public class SampleApp {
         }
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("pl.piomin.services.sample"))
+                .apis(RequestHandlerSelectors.basePackage("tn.keyrus.dekorateApp"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(new ApiInfoBuilder().version(version).title("Person API").description("Documentation Person API v1.0").build());

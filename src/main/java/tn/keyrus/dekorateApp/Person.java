@@ -1,4 +1,4 @@
-package pl.piomin.services.sample;
+package tn.keyrus.dekorateApp;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

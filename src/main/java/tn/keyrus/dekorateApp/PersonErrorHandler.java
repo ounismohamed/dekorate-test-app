@@ -1,4 +1,4 @@
-package pl.piomin.services.sample;
+package tn.keyrus.dekorateApp;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

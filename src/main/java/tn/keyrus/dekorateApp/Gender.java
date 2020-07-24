@@ -1,4 +1,4 @@
-package pl.piomin.services.sample;
+package tn.keyrus.dekorateApp;
 
 public enum Gender {
     MALE, FEMALE;
